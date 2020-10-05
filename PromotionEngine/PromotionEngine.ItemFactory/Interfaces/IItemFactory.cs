@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using PromotionEngine.Entities;
+﻿using PromotionEngine.Entities;
 
 namespace PromotionEngine.Factory.Interfaces
 {

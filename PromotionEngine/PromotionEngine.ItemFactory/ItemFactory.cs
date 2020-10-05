@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using PromotionEngine.Entities;
+﻿using PromotionEngine.Entities;
 using PromotionEngine.Factory.Interfaces;
 
 namespace PromotionEngine.Factory

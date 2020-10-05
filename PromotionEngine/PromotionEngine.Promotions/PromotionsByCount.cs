@@ -23,9 +23,7 @@ namespace PromotionEngine.Promotions
                 OrderItem promoItem = null;
                 if (orderItem.SkuId == _item.SkuId && orderItem.Count>=_count)
                 {
-                    promoItem = new OrderItem();
-                    promoItem.Count = orderItem.Count / _count;
-                    promoItem.Price = _price;
+                    promoItem = new OrderItem {Count = orderItem.Count / _count, Price = _price};
                     orderItem.Count = orderItem.Count % _count;
                 }
                 if (promoItem != null)

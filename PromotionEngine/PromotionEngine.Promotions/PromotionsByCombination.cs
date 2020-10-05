@@ -5,9 +5,9 @@ namespace PromotionEngine.Promotions
 {
     public class PromotionsByCombination : IPromotion
     {
-        private OrderItem _firstItem;
-        private OrderItem _secondItem;
-        private decimal _combinedPrice;
+        private readonly OrderItem _firstItem;
+        private readonly OrderItem _secondItem;
+        private readonly decimal _combinedPrice;
 
         public PromotionsByCombination(OrderItem firstItem, OrderItem secondItem, decimal combinedPrice)
         {
@@ -31,25 +31,19 @@ namespace PromotionEngine.Promotions
             {
                 if (firstItemCount > secondItemCount)
                 {
-                    promoItem = new OrderItem();
-                    promoItem.Price = _combinedPrice;
-                    promoItem.Count = secondItemCount;
+                    promoItem = new OrderItem {Price = _combinedPrice, Count = secondItemCount};
                     firstItemCount -= secondItemCount;
                     secondItemCount = 0;
                 }
                 else if (secondItemCount > firstItemCount)
                 {
-                    promoItem = new OrderItem();
-                    promoItem.Price = _combinedPrice;
-                    promoItem.Count = firstItemCount;
+                    promoItem = new OrderItem {Price = _combinedPrice, Count = firstItemCount};
                     secondItemCount -= firstItemCount;
                     firstItemCount = 0;
                 }
                 else if (secondItemCount == firstItemCount)
                 {
-                    promoItem = new OrderItem();
-                    promoItem.Price = _combinedPrice;
-                    promoItem.Count = firstItemCount;
+                    promoItem = new OrderItem {Price = _combinedPrice, Count = firstItemCount};
                     secondItemCount = 0;
                     firstItemCount = 0;
                 }

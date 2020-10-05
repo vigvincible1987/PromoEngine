@@ -5,11 +5,11 @@ namespace PromotionEngine.Promotions
 {
     public class PromotionsByCombination : IPromotion
     {
-        private Item _firstItem;
-        private Item _secondItem;
+        private OrderItem _firstItem;
+        private OrderItem _secondItem;
         private decimal _combinedPrice;
 
-        public PromotionsByCombination(Item firstItem, Item secondItem, decimal combinedPrice)
+        public PromotionsByCombination(OrderItem firstItem, OrderItem secondItem, decimal combinedPrice)
         {
             _firstItem = firstItem;
             _secondItem = secondItem;
@@ -19,7 +19,7 @@ namespace PromotionEngine.Promotions
         {
             var firstItemCount = 0;
             var secondItemCount = 0;
-            PromoItem promoItem = null;
+            OrderItem promoItem = null;
 
             foreach (var orderItem in order.OrderItems)
             {
@@ -31,7 +31,7 @@ namespace PromotionEngine.Promotions
             {
                 if (firstItemCount > secondItemCount)
                 {
-                    promoItem = new PromoItem();
+                    promoItem = new OrderItem();
                     promoItem.Price = _combinedPrice;
                     promoItem.Count = secondItemCount;
                     firstItemCount -= secondItemCount;
@@ -39,7 +39,7 @@ namespace PromotionEngine.Promotions
                 }
                 else if (secondItemCount > firstItemCount)
                 {
-                    promoItem = new PromoItem();
+                    promoItem = new OrderItem();
                     promoItem.Price = _combinedPrice;
                     promoItem.Count = firstItemCount;
                     secondItemCount -= firstItemCount;
@@ -47,9 +47,9 @@ namespace PromotionEngine.Promotions
                 }
                 else if (secondItemCount == firstItemCount)
                 {
-                    promoItem = new PromoItem();
+                    promoItem = new OrderItem();
                     promoItem.Price = _combinedPrice;
-                    promoItem.Price = firstItemCount;
+                    promoItem.Count = firstItemCount;
                     secondItemCount = 0;
                     firstItemCount = 0;
                 }
@@ -66,6 +66,7 @@ namespace PromotionEngine.Promotions
             {
                 order.PromoItems.Add(promoItem);
             }
+
             return order;
         }
     }

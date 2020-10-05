@@ -5,8 +5,8 @@ using PromotionEngine.Entities;
 
 namespace PromotionEngine.Factory.Interfaces
 {
-    interface IItemFactory
+    public interface IItemFactory
     {
-        Item GetItem(string skuId);
+        OrderItem GetItem(string skuId);
     }
 }

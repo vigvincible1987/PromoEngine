@@ -7,10 +7,10 @@ namespace PromotionEngine.Factory
 {
     public class ItemFactory : IItemFactory
     {
-        public Item GetItem(string skuId)
+        public OrderItem GetItem(string skuId)
         {
             var orderItem = new OrderItem(); 
-            switch (skuId)
+            switch (skuId.ToUpper())
             {
                 case "A":
                     orderItem.SkuId = "A";
@@ -27,6 +27,9 @@ namespace PromotionEngine.Factory
                 case "D":
                     orderItem.SkuId = "D";
                     orderItem.Price = 15;
+                    break;
+                default:
+                    orderItem = null;
                     break;
             }
 

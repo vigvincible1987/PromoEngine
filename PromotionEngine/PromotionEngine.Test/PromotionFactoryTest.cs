@@ -12,7 +12,7 @@ namespace PromotionEngine.Test
         [TestMethod]
         public void TestPromotionsByCount()
         {
-            var itemA = new OrderItem { SkuId = "A", Count = 5, Price = 50 };
+            var itemA = new OrderItem {SkuId = "A", Count = 5, Price = 50};
             var order = new Order();
             order.OrderItems.Add(itemA);
             order = _promotionFactory.ApplyPromotion(order);
@@ -25,8 +25,8 @@ namespace PromotionEngine.Test
         [TestMethod]
         public void TestPromotionsByCombination()
         {
-            var itemC = new OrderItem { SkuId = "C", Count = 3, Price = 20 };
-            var itemD = new OrderItem { SkuId = "D", Count = 3, Price = 15 };
+            var itemC = new OrderItem {SkuId = "C", Count = 3, Price = 20};
+            var itemD = new OrderItem {SkuId = "D", Count = 3, Price = 15};
             var order = new Order();
             order.OrderItems.Add(itemC);
             order.OrderItems.Add(itemD);

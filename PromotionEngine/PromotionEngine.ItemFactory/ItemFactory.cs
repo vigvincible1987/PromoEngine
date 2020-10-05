@@ -7,7 +7,7 @@ namespace PromotionEngine.Factory
     {
         public OrderItem GetItem(string skuId)
         {
-            var orderItem = new OrderItem(); 
+            var orderItem = new OrderItem();
             switch (skuId.ToUpper())
             {
                 case "A":

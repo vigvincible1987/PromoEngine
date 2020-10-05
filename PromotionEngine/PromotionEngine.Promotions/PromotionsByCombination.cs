@@ -5,9 +5,9 @@ namespace PromotionEngine.Promotions
 {
     public class PromotionsByCombination : IPromotion
     {
+        private readonly decimal _combinedPrice;
         private readonly OrderItem _firstItem;
         private readonly OrderItem _secondItem;
-        private readonly decimal _combinedPrice;
 
         public PromotionsByCombination(OrderItem firstItem, OrderItem secondItem, decimal combinedPrice)
         {
@@ -15,6 +15,7 @@ namespace PromotionEngine.Promotions
             _secondItem = secondItem;
             _combinedPrice = combinedPrice;
         }
+
         public Order ApplyPromotion(Order order)
         {
             var firstItemCount = 0;
@@ -56,10 +57,7 @@ namespace PromotionEngine.Promotions
                 if (orderItem.SkuId == _secondItem.SkuId) orderItem.Count = secondItemCount;
             }
 
-            if (promoItem != null)
-            {
-                order.PromoItems.Add(promoItem);
-            }
+            if (promoItem != null) order.PromoItems.Add(promoItem);
 
             return order;
         }

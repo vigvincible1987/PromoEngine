@@ -8,6 +8,7 @@ namespace PromotionEngine.Test
     public class ItemFactoryTest
     {
         private readonly IItemFactory _itemFactory = new ItemFactory();
+
         [TestMethod]
         public void TestForItemA()
         {

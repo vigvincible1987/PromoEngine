@@ -5,8 +5,8 @@ namespace PromotionEngine.Promotions
 {
     public class PromotionsByCount : IPromotion
     {
-        private readonly OrderItem _item;
         private readonly int _count;
+        private readonly OrderItem _item;
         private readonly decimal _price;
 
         public PromotionsByCount(OrderItem item, int count, decimal price)
@@ -18,18 +18,16 @@ namespace PromotionEngine.Promotions
 
         public Order ApplyPromotion(Order order)
         {
-            foreach (var orderItem in order.OrderItems )
+            foreach (var orderItem in order.OrderItems)
             {
                 OrderItem promoItem = null;
-                if (orderItem.SkuId == _item.SkuId && orderItem.Count>=_count)
+                if (orderItem.SkuId == _item.SkuId && orderItem.Count >= _count)
                 {
                     promoItem = new OrderItem {Count = orderItem.Count / _count, Price = _price};
                     orderItem.Count = orderItem.Count % _count;
                 }
-                if (promoItem != null)
-                {
-                    order.PromoItems.Add(promoItem);
-                }
+
+                if (promoItem != null) order.PromoItems.Add(promoItem);
             }
 
             return order;

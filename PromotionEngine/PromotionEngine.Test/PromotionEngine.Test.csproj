@@ -53,6 +53,7 @@
     <Compile Include="ItemFactoryTest.cs" />
     <Compile Include="PromotionFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScenarioTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

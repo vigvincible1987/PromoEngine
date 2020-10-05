@@ -12,7 +12,7 @@ namespace PromotionEngine.Test
         public void TestForItemA()
         {
             var item = _itemFactory.GetItem("A");
-            Assert.AreEqual(item.SkuId, "A");
+            Assert.AreEqual("A", item.SkuId);
         }
 
 
@@ -20,21 +20,21 @@ namespace PromotionEngine.Test
         public void TestForItemB()
         {
             var item = _itemFactory.GetItem("b");
-            Assert.AreEqual(item.SkuId, "B");
+            Assert.AreEqual("B", item.SkuId);
         }
 
         [TestMethod]
         public void TestForItemC()
         {
             var item = _itemFactory.GetItem("C");
-            Assert.AreEqual(item.SkuId, "C");
+            Assert.AreEqual("C", item.SkuId);
         }
 
         [TestMethod]
         public void TestForItemD()
         {
             var item = _itemFactory.GetItem("D");
-            Assert.AreEqual(item.SkuId, "D");
+            Assert.AreEqual("D", item.SkuId);
         }
 
         [TestMethod]

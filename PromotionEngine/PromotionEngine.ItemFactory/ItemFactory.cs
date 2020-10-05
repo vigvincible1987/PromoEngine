@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using PromotionEngine.Entities;
-using PromotionEngine.ItemFactory.Interfaces;
+using PromotionEngine.Factory.Interfaces;
 
-namespace PromotionEngine.ItemFactory
+namespace PromotionEngine.Factory
 {
     public class ItemFactory : IItemFactory
     {

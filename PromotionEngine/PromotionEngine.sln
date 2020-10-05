@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotionEngine.Entities", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotionEngine.Promotions", "PromotionEngine.Promotions\PromotionEngine.Promotions.csproj", "{DD09CC51-AD8D-4164-A73B-F01E568B9F60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromotionEngine.ItemFactory", "PromotionEngine.ItemFactory\PromotionEngine.ItemFactory.csproj", "{1007F34D-9EFE-47C4-9F49-B8494CEE72FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotionEngine.Factory", "PromotionEngine.ItemFactory\PromotionEngine.Factory.csproj", "{1007F34D-9EFE-47C4-9F49-B8494CEE72FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

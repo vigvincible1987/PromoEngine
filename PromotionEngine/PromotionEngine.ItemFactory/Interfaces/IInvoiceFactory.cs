@@ -5,8 +5,8 @@ using PromotionEngine.Entities;
 
 namespace PromotionEngine.Factory.Interfaces
 {
-    interface IItemFactory
+    public interface IInvoiceFactory
     {
-        Item GetItem(string skuId);
+        decimal CalculateTotalInvoiceAmount(Order order);
     }
 }

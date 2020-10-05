@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using PromotionEngine.Entities;
+﻿using PromotionEngine.Entities;
 using PromotionEngine.Promotions.Interfaces;
 
 namespace PromotionEngine.Promotions
 {
     public class PromotionsByCount : IPromotion
     {
-        private Item _item;
-        private int _count;
-        private decimal _price;
+        private readonly Item _item;
+        private readonly int _count;
+        private readonly decimal _price;
 
         public PromotionsByCount(Item item, int count, decimal price)
         {
@@ -21,7 +18,32 @@ namespace PromotionEngine.Promotions
 
         public Order ApplyPromotion(Order order)
         {
-            throw new NotImplementedException();
+            Order orderToReturn = new Order();
+            foreach (var orderItem in order.OrderItems )
+            {
+                OrderItem orderItemToAdd = new OrderItem();
+                PromoItem promoItem = null;
+                orderItemToAdd.SkuId = orderItem.SkuId;
+                orderItemToAdd.Price = orderItem.Price;
+                if (orderItem.SkuId == _item.SkuId && orderItem.Count>=_count)
+                {
+                    orderItemToAdd.Count = orderItem.Count % _count;
+                    promoItem = new PromoItem();
+                    promoItem.Count = orderItem.Count / _count;
+                    promoItem.Price = _price;
+                }
+                else
+                {
+                    orderItemToAdd.Count = orderItem.Count;
+                }
+                orderToReturn.OrderItems.Add(orderItemToAdd);
+                if (promoItem != null)
+                {
+                    orderToReturn.PromoItems.Add(promoItem);
+                }
+            }
+
+            return orderToReturn;
         }
     }
 }
